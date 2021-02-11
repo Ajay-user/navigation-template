@@ -1,0 +1,230 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+:root {
+  --primary: #fff;
+  --navColor1: #aa3939;
+  --navColor2: #aa6c39;
+  --navColor3: #226666;
+  --navColor4: #2d882d;
+  --navColor5: #6a3000;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Nunito, sans-serif;
+  background: #000;
+}
+
+/* navigation */
+
+/* menu-overlay */
+.overlay {
+  z-index: 9;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.overlay-slide-left {
+  transition: all 0.8s ease-in-out;
+  transform: translateX(-100vw);
+}
+.overlay-slide-right {
+  transition: all 0.4s ease-in-out;
+  transform: translateX(0);
+}
+
+/* menu-items */
+nav ul,
+nav {
+  z-index: 10;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  list-style: none;
+}
+nav li:nth-of-type(1) {
+  background-color: var(--navColor1);
+}
+nav li:nth-of-type(2) {
+  background-color: var(--navColor2);
+}
+nav li:nth-of-type(3) {
+  background-color: var(--navColor3);
+}
+nav li:nth-of-type(4) {
+  background-color: var(--navColor4);
+}
+nav li:nth-of-type(5) {
+  background-color: var(--navColor5);
+}
+nav li {
+  height: 20%;
+  overflow: hidden;
+}
+nav li a {
+  position: relative;
+  top: 45%;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--primary);
+  letter-spacing: 4px;
+}
+nav li a::before {
+  content: "";
+  width: 25vw;
+  height: 3px;
+  background-color: var(--primary);
+  position: absolute;
+  top: 45%;
+  left: 0;
+  opacity: 0;
+}
+
+nav li a:hover {
+  transform: scale(1.2);
+}
+nav li a:hover::before {
+  opacity: 1;
+}
+
+/* slide in & out animation */
+.slide-in-1 {
+  animation: slide-in 0.4s linear 0.2s both;
+}
+.slide-in-2 {
+  animation: slide-in 0.4s linear 0.4s both;
+}
+.slide-in-3 {
+  animation: slide-in 0.4s linear 0.6s both;
+}
+.slide-in-4 {
+  animation: slide-in 0.4s linear 0.8s both;
+}
+.slide-in-5 {
+  animation: slide-in 0.4s linear 1s both;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-100vw);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.slide-out-1 {
+  animation: slide-out 0.3s linear 0.5s both;
+}
+.slide-out-2 {
+  animation: slide-out 0.3s linear 0.4s both;
+}
+.slide-out-3 {
+  animation: slide-out 0.3s linear 0.3s both;
+}
+.slide-out-4 {
+  animation: slide-out 0.3s linear 0.2s both;
+}
+.slide-out-5 {
+  animation: slide-out 0.3s linear 0.1s both;
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100vw);
+  }
+}
+
+/* menu-bars */
+.menu-bars {
+  z-index: 15;
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: var(--primary);
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+
+/* section styles */
+
+section {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--primary);
+}
+
+section#home {
+  background-image: url("https://images.unsplash.com/photo-1611521216627-0ac730716c3b?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDE4NXxpVUlzblZ0akIwWXx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+  background-size: cover;
+  background-position: center center;
+}
+section#home h1 {
+  font-size: 20px;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+}
+
+section#about {
+  background-color: var(--navColor2);
+}
+section#skill {
+  background-color: var(--navColor3);
+}
+section#project {
+  background-color: var(--navColor4);
+}
+section#contact {
+  background-color: var(--navColor5);
+}
